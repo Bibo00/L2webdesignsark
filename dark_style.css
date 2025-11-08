@@ -537,25 +537,115 @@ footer {
 /* ================== RESPONSIVE MEDIA QUERIES (GLOBALI) ================== */
 
 /* Tablet */
-@media (max-width: 992px) {
-    h1 { font-size: 2.75rem; }
-    h2 { font-size: 2rem; }
+@media (max-width: 1600px) {
+    h1 { font-size: 2.2rem; }
+    h2 { font-size: 1.75rem; }
 
     .features-grid {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 1fr;
     }
 
     .portfolio-grid {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 1fr;
     }
 
-    .footer-container {
+    .team-grid {
         grid-template-columns: 1fr;
-        text-align: center;
+    }
+
+    .small-hero h1 {
+        font-size: 2rem;
+    }
+
+    .hero {
+        padding: 60px 0;
+        margin-bottom: 20px; /* Riduci il margine inferiore della sezione hero */
+    }
+
+    .big-title{
+        margin-bottom: 80px;
+    }
+
+    section {
+        padding: 60px 0;
     }
     
-    .footer-col .logo {
-        justify-content: center;
+    .small-hero h1 {
+        font-size: 2rem;
+    }
+
+    /* --- INIZIO AGGIUNTE HERO RESPONSIVE --- */
+    .container .top-title {
+        padding-top: 20px; /* Riduci lo spazio sopra */
+        font-size: 8em; /* Riduci molto la dimensione del font */
+    }
+    
+    .container .bottom-title {
+        font-size: 7em; /* Riduci molto la dimensione del font */
+    }
+    
+    .top-side, .bottom-side {
+        margin: 0; /* Assicura che non ci siano margini */
+    }
+
+    .hero-top-left-angle{
+        width: 180px;
+        left: 4em;
+        top: -3em;
+    }
+
+    .hero-bottom-right-angle{
+        width: 180px;
+        right: 5em;
+        top: 1em;
+    }
+
+
+    /* --- FINE MODIFICHE MENU --- */
+}
+
+/* Mobile */
+@media (max-width: 1000px) {
+    h1 { font-size: 2.2rem; }
+    h2 { font-size: 1.75rem; }
+
+    .features-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .portfolio-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .team-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .small-hero h1 {
+        font-size: 2rem;
+    }
+
+    .hero {
+        padding: 60px 0;
+        margin-bottom: 20px; /* Riduci il margine inferiore della sezione hero */
+    }
+
+    .big-title{
+        margin-bottom: 80px;
+    }
+
+    section {
+        padding: 60px 0;
+    }
+    
+    .small-hero h1 {
+        font-size: 2rem;
+    }
+
+    .hero-logo-icon{
+        width: 140px;
+        height: 140px;
+        opacity: 1;
     }
 
     /* --- INIZIO MODIFICHE MENU --- */
@@ -599,75 +689,6 @@ footer {
         margin-top: 15px;
     }
 
-    .container .top-title {
-        font-size: 9em; /* Riduci la dimensione del font */
-    }
-    .container .bottom-title {
-        font-size: 8em; /* Riduci la dimensione del font */
-    }
-
-    .top-side, .bottom-side {
-        margin: 0; /* Rimuovi i margini laterali */
-    }
-
-    .hero-top-left-angle {
-        width: 200px; /* Riduci e riposiziona */
-        left: 20px;
-        top: 100px;
-    }
-
-    .hero-bottom-right-angle {
-        width: 200px; /* Riduci e riposiziona */
-        right: 20px;
-        bottom: 30px;
-    }
-    /* --- FINE MODIFICHE MENU --- */
-}
-
-/* Mobile */
-@media (max-width: 768px) {
-    h1 { font-size: 2.2rem; }
-    h2 { font-size: 1.75rem; }
-
-    .features-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .portfolio-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .team-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .small-hero h1 {
-        font-size: 2rem;
-    }
-
-    .hero {
-        padding: 60px 0;
-        margin-bottom: 20px; /* Riduci il margine inferiore della sezione hero */
-    }
-
-    .big-title{
-        margin-bottom: 80px;
-    }
-
-    section {
-        padding: 60px 0;
-    }
-    
-    .small-hero h1 {
-        font-size: 2rem;
-    }
-
-    .hero-logo-icon{
-        width: 140px;
-        height: 140px;
-        opacity: 1;
-    }
-
     /* --- INIZIO AGGIUNTE HERO RESPONSIVE --- */
     .container .top-title {
         padding-top: 20px; /* Riduci lo spazio sopra */
@@ -687,5 +708,4 @@ footer {
     .hero-bottom-right-angle {
         display: none;
     }
-
 }

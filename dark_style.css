@@ -258,7 +258,7 @@ main .container{
 .hero-bottom-right-angle{
     position: relative;
     width: 250px;
-    /* right: 150px; */
+    right: 10em;
     transform: scaleX(-1);
     top: 3em;
 }
@@ -687,4 +687,5 @@ footer {
     .hero-bottom-right-angle {
         display: none;
     }
+
 }

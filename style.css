@@ -1,0 +1,570 @@
+/* ================== GLOBAL STYLES & VARIABLES ================== */
+:root {
+    --primary-purple: #7C3AED; /* Un viola simile a quello del mockup */
+    --gradient-start: #5B21B6;
+    --gradient-end: #06B6D4;
+    --text-dark: #1F2937;
+    --text-light: #6B7280;
+    --bg-white: #FFFFFF;
+    --bg-light-gray: #F9FAFB;
+    --border-color: #E5E7EB;
+    --card-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    --border-radius-md: 12px;
+    --border-radius-full: 9999px;
+    --input-border: #D1D5DB;
+    --input-focus-border: var(--primary-purple);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    color: var(--text-dark);
+    background-color: var(--bg-white);
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+h1, h2, h3, h4 {
+    font-weight: 600;
+}
+
+h1 { font-size: 3.5rem; line-height: 1.2; }
+h2 { font-size: 2.5rem; margin-bottom: 10px; }
+h3 { font-size: 1.25rem; margin-bottom: 10px; }
+h4 { font-size: 1.1rem; margin-bottom: 15px; }
+
+p {
+    color: var(--text-light);
+    margin-bottom: 20px;
+}
+
+a {
+    text-decoration: none;
+    color: var(--primary-purple);
+}
+
+img {
+    max-width: 100%; /* Corretto: le immagini globali dovrebbero essere responsive */
+    display: block;
+}
+
+section {
+    padding: 80px 0;
+}
+
+.section-subtitle {
+    font-size: 1.1rem;
+    color: var(--text-light);
+    max-width: 600px;
+    margin: 0 auto 40px auto;
+}
+
+/* ================== UTILITY CLASSES ================== */
+.gradient-text {
+    background: linear-gradient(90deg, var(--gradient-start), var(--gradient-end));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+}
+
+.cta-button {
+    display: inline-block;
+    background-color: var(--primary-purple);
+    color: var(--bg-white);
+    padding: 12px 28px;
+    border-radius: var(--border-radius-full);
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.cta-button:hover {
+    opacity: 0.9;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(124, 58, 237, 0.3);
+}
+
+.cta-button-outline {
+    display: inline-block;
+    background-color: transparent;
+    color: var(--primary-purple);
+    border: 1px solid var(--primary-purple);
+    padding: 10px 24px;
+    border-radius: var(--border-radius-full);
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.cta-button-outline:hover {
+    background-color: var(--primary-purple);
+    color: var(--bg-white);
+}
+
+/* ================== HEADER ================== */
+header {
+    background: var(--bg-white);
+    padding: 20px 0;
+    border-bottom: 1px solid var(--border-color);
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+}
+
+header nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--text-dark);
+}
+
+.logo img {
+    height: 40px;
+}
+
+/* Contenitore dei link di navigazione */
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.nav-links ul {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+}
+
+.nav-links ul a {
+    text-decoration: none;
+    color: var(--text-light);
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav-links ul a:hover {
+    color: var(--primary-purple);
+}
+
+/* ================== HAMBURGER MENU ================== */
+.hamburger-menu {
+    display: none; /* Nascosto su desktop */
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30px;
+    height: 24px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 101; /* Sopra tutto il resto */
+}
+
+.hamburger-menu span {
+    width: 30px;
+    height: 3px;
+    background-color: var(--text-dark);
+    border-radius: 5px;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Animazione per trasformare le barre in una 'X' */
+.hamburger-menu.is-active span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+
+.hamburger-menu.is-active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger-menu.is-active span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+/* ================== HERO SECTION (GENERALE) ================== */
+.hero {
+    text-align: center;
+    padding: 100px 0;
+}
+
+.hero-logo-icon {
+    width: 160px;
+    height: 160px;
+    margin: 0 auto 25px auto;
+    border-radius: 50%;
+    box-shadow: var(--card-shadow);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg-white);
+    padding: 15px;
+}
+
+.hero h1 {
+    max-width: 700px;
+    margin: 0 auto 20px auto;
+}
+
+.hero p {
+    font-size: 1.15rem;
+    max-width: 600px;
+    margin: 0 auto 30px auto;
+}
+
+
+/* Stile per Hero più piccoli (Contatti, Chi Siamo) */
+.small-hero {
+    padding: 60px 0 40px 0;
+}
+
+.small-hero h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+}
+
+.small-hero .section-subtitle {
+    margin-bottom: 0;
+}
+
+/* ================== FEATURES SECTION ================== */
+.features {
+    background-color: var(--bg-white); /* Nell'immagine è bianco */
+    padding-top: 0; /* Si attacca quasi all'hero */
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    text-align: left;
+}
+
+.feature-card {
+    background: var(--bg-white);
+    padding: 30px;
+    border-radius: var(--border-radius-md);
+    box-shadow: var(--card-shadow);
+    border: 1px solid var(--border-color);
+}
+
+.icon-wrapper {
+    width: 60px;
+    height: 60px;
+    border-radius: var(--border-radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    color: white; /* Per il colore del SVG se non è specificato internamente */
+    background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+}
+
+.icon-wrapper img {
+    width: 32px; /* Dimensione delle icone SVG all'interno del wrapper */
+    height: 32px;
+}
+
+.feature-card p {
+    font-size: 0.95rem;
+    margin-bottom: 0;
+}
+
+
+/* ================== PORTFOLIO SECTION ================== */
+.portfolio {
+    text-align: center;
+    background-color: var(--bg-light-gray);
+}
+
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    text-align: left;
+    margin-bottom: 40px;
+}
+
+.project-card {
+    background: var(--bg-white);
+    border-radius: var(--border-radius-md);
+    box-shadow: var(--card-shadow);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.07);
+}
+
+.project-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+}
+
+.project-card .card-content {
+    padding: 25px;
+}
+
+.project-card p {
+    font-size: 0.95rem;
+    margin-bottom: 0;
+}
+
+/* ================== TEAM SECTION ================== */
+.team {
+    text-align: center;
+}
+
+.team-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    max-width: 900px;
+    margin: 40px auto;
+    text-align: left;
+}
+
+.team-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: var(--bg-white);
+    padding: 30px;
+    border-radius: var(--border-radius-md);
+    box-shadow: var(--card-shadow);
+    border: 1px solid var(--border-color);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.team-card:hover {
+    transform: translateY(-5px); /* Solleva la card */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08); /* Aumenta l'ombra */
+}
+
+.team-card p {
+    font-size: 0.95rem;
+    margin-bottom: 0;
+}
+
+.team .icon-wrapper{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+
+/* Stile specifico per le immagini del team */
+.team img {
+    width: 60%;
+    height: auto;
+}
+
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.tags span {
+    background: var(--bg-light-gray);
+    color: var(--text-light);
+    padding: 5px 12px;
+    border-radius: var(--border-radius-full);
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+/* ================== FINAL CTA SECTION ================== */
+.final-cta {
+    text-align: center;
+    background-color: var(--bg-light-gray);
+}
+
+/* ================== FOOTER ================== */
+footer {
+    background: var(--bg-white);
+    padding-top: 60px;
+    border-top: 1px solid var(--border-color);
+}
+
+.footer-container {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 40px;
+    margin-bottom: 40px;
+}
+
+.footer-col {
+    font-size: 0.9rem;
+}
+
+.footer-col .logo {
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+}
+
+.footer-col .logo img {
+    height: 35px;
+}
+
+.footer-col p {
+    color: var(--text-light);
+    margin-bottom: 10px;
+    line-height: 1.7;
+}
+
+.footer-col ul {
+    list-style: none;
+}
+
+.footer-col ul li {
+    margin-bottom: 10px;
+}
+
+.footer-col ul a, .footer-col p a {
+    color: var(--text-light);
+    transition: color 0.3s ease;
+}
+
+.footer-col ul a:hover, .footer-col p a:hover {
+    color: var(--primary-purple);
+}
+
+.footer-bottom {
+    text-align: center;
+    padding: 30px 0;
+    border-top: 1px solid var(--border-color);
+}
+
+.footer-bottom p {
+    color: var(--text-light);
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+
+/* ================== RESPONSIVE MEDIA QUERIES (GLOBALI) ================== */
+
+/* Tablet */
+@media (max-width: 992px) {
+    h1 { font-size: 2.75rem; }
+    h2 { font-size: 2rem; }
+
+    .features-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .portfolio-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .footer-container {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    
+    .footer-col .logo {
+        justify-content: center;
+    }
+
+    /* --- INIZIO MODIFICHE MENU --- */
+
+    /* Mostra il pulsante hamburger */
+    .hamburger-menu {
+        display: flex;
+    }
+
+    /* Nascondi il menu desktop e trasformalo in menu mobile */
+    .nav-links {
+        position: absolute;
+        top: 81px; /* Altezza header (padding 20*2 + logo 40 + bordo 1) */
+        left: 0;
+        width: 100%;
+        background: var(--bg-white);
+        flex-direction: column;
+        align-items: center;
+        padding: 20px 0 30px 0;
+        box-shadow: 0 10px 15px rgba(0, 0, 0, 0.07);
+        gap: 0; /* Resetta il gap desktop */
+        
+        /* Nascondilo fuori dallo schermo */
+        transform: translateY(-130%);
+        transition: transform 0.3s ease-in-out;
+    }
+
+    /* Classe 'active' aggiunta da JS per mostrare il menu */
+    .nav-links.nav-active {
+        transform: translateY(0);
+    }
+
+    .nav-links ul {
+        flex-direction: column;
+        gap: 10px; /* Spazio tra i link */
+        width: 100%;
+        text-align: center;
+    }
+
+    .nav-links ul li a {
+        padding: 10px 0;
+        display: block; /* Rendi cliccabile l'intera area */
+        width: 100%;
+    }
+
+    .nav-cta {
+        margin-top: 15px; /* Spazio tra link e bottone */
+    }
+    /* --- FINE MODIFICHE MENU --- */
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    h1 { font-size: 2.2rem; }
+    h2 { font-size: 1.75rem; }
+
+    .features-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .portfolio-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .team-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hero {
+        padding: 60px 0;
+    }
+
+    section {
+        padding: 60px 0;
+    }
+
+    /* Le regole per nascondere .nav-cta e centrare .header nav */
+    /* non sono più necessarie, quindi sono state rimosse. */
+}

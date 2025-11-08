@@ -1,0 +1,134 @@
+/* ================== ABOUT PAGE SPECIFIC STYLES ================== */
+
+/* Stile per la sezione Filosofia e Valori */
+#filosofia, #valori {
+    padding-top: 0; /* Rimuove il padding superiore per #filosofia */
+}
+
+#valori {
+    padding-top: 60px; /* Aggiunge spazio tra le sezioni */
+}
+
+/* Card della Filosofia (larga) */
+.philosophy-card {
+    background: var(--bg-white);
+    padding: 50px;
+    border-radius: var(--border-radius-md);
+    box-shadow: var(--card-shadow);
+    border: 1px solid var(--border-color);
+    max-width: 900px; /* Più larga delle card normali */
+    margin: 0 auto;
+    text-align: center;
+}
+
+.philosophy-card h3 {
+    font-size: 1.75rem;
+    color: var(--text-dark);
+    margin-bottom: 25px;
+}
+
+.philosophy-card p {
+    font-size: 1.05rem;
+    color: var(--text-light);
+    line-height: 1.7;
+}
+
+.philosophy-card p:last-child {
+    margin-bottom: 0;
+}
+
+/* Griglia Valori (2x2) */
+.section-title {
+    text-align: center;
+    font-size: 2.25rem;
+    margin-bottom: 40px;
+    color: var(--text-dark);
+}
+
+.values-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.value-card {
+    background: var(--bg-white);
+    padding: 25px;
+    border-radius: var(--border-radius-md);
+    box-shadow: var(--card-shadow);
+    border: 1px solid var(--border-color);
+    display: flex;
+    align-items: flex-start; /* Allinea icona e testo in alto */
+    gap: 20px;
+}
+
+.value-card .icon-wrapper {
+    flex-shrink: 0; /* Impedisce all'icona di rimpicciolirsi */
+    width: 50px;
+    height: 50px;
+    border-radius: var(--border-radius-md);
+    margin-bottom: 0; /* Sovrascrive il margin-bottom generale */
+}
+
+.value-card .icon-wrapper img {
+    width: 28px;
+    height: 28px;
+}
+
+.value-card h4 {
+    margin-bottom: 5px;
+    color: var(--text-dark);
+}
+
+.value-card p {
+    font-size: 0.95rem;
+    color: var(--text-light);
+    margin-bottom: 0;
+}
+
+/* Gradienti per le icone (riutilizzati da contacts.css, ma definiti qui per indipendenza) */
+.purple-gradient {
+    background: linear-gradient(135deg, #6d28d9, #a78bfa);
+}
+
+.blue-gradient {
+    background: linear-gradient(135deg, #0284c7, #38bdf8);
+}
+
+
+/* ================== RESPONSIVE (ABOUT PAGE) ================== */
+
+/* Tablet */
+@media (max-width: 992px) {
+    .philosophy-card {
+        padding: 40px;
+    }
+    
+    /* Le card dei valori rimangono 2x2 */
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .section-title {
+        font-size: 1.75rem;
+    }
+
+    .philosophy-card {
+        padding: 30px 25px;
+    }
+
+    .philosophy-card h3 {
+        font-size: 1.5rem;
+    }
+
+    .philosophy-card p {
+        font-size: 0.95rem;
+    }
+
+    .values-grid {
+        grid-template-columns: 1fr; /* Una singola colonna */
+        gap: 20px;
+    }
+}

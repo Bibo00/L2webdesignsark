@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>L2 Web Design - Contatti</title>
+    <link rel="stylesheet" href="dark_style.css">
+    <link rel="stylesheet" href="dark_contacts.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header>
+        <nav class="container">
+            <a href="index.html" class="logo">
+                <img src="logo.png" alt="L2 Web Design Logo">
+                L2 Web Design
+            </a>
+
+            <div class="nav-links">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="projects.html">Progetti</a></li>
+                    <li><a href="about.html">Chi Siamo</a></li> 
+                </ul>
+                <a href="" class="cta-button nav-cta">Contatti</a>
+            </div>
+            
+            <button class="hamburger-menu" aria-label="Apri menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </nav>
+    </header>
+
+    <main>
+        <section id="contact-page-hero" class="hero small-hero">
+            <div class="container">
+                <h1>
+                    <span class="gradient-text">Parliamo</span> del Tuo Progetto
+                </h1>
+                <p class="section-subtitle">
+                    Hai un'idea o un progetto in mente? Contattaci e iniziamo a lavorare insieme per trasformarla in realtà.
+                </p>
+            </div>
+        </section>
+
+        <section id="contact-content">
+            <div class="container contact-grid">
+                <div class="contact-form-card">
+                    <form>
+                        <div class="form-group">
+                            <label for="name">Nome</label>
+                            <input type="text" id="name" name="name" placeholder="Il tuo nome">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" placeholder="tua@email.com">
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Messaggio</label>
+                            <textarea id="message" name="message" rows="5" placeholder="Raccontaci del tuo progetto..."></textarea>
+                        </div>
+                        <button type="submit" class="cta-button form-submit-button">
+                            Invia Messaggio <span>&#9992;</span>
+                        </button>
+                    </form>
+                </div>
+
+                <div class="contact-info-cards">
+                    <div class="info-card">
+                        <div class="icon-wrapper purple-gradient">
+                            <img src="mail.png" alt="Email Icon">
+                        </div>
+                        <div>
+                            <h4>Email</h4>
+                            <p>info@l2webdesign.com</p>
+                        </div>
+                    </div>
+
+                    <div class="info-card">
+                        <div class="icon-wrapper blue-gradient">
+                            <img src="phone.png" alt="Phone Icon">
+                        </div>
+                        <div>
+                            <h4>Telefono</h4>
+                            <p>+39 XXX XXXX XXXX</p>
+                        </div>
+                    </div>
+
+                    <div class="info-card hours-card">
+                        <div>
+                            <h4>Orari di Lavoro</h4>
+                            <p>Lunedì - Venerdì: 9:00 - 18:00</p>
+                            <p class="small-text">Rispondiamo solitamente entro 24 ore nei giorni lavorativi.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container footer-container">
+            <div class="footer-col">
+                <a href="index.html" class="logo">
+                    <img src="logo.png" alt="L2 Web Design Logo">
+                    L2 Web Design
+                </a>
+                <p>Trasformiamo idee digitali in esperienze web uniche. Design moderno, funzionalità su misura.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Link Rapidi</h4>
+                <ul>
+                    <li><a href="index.html#home">Home</a></li>
+                    <li><a href="index.html#progetti">Progetti</a></li>
+                    <li><a href="index.html#chi-siamo">Chi Siamo</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Contatti</h4>
+                <p>
+                    <a href="mailto:info@l2webdesign.com">info@l2webdesign.com</a>
+                </p>
+                <p>+39 XXX XXXX XXXX</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 L2 Web Design. Tutti i diritti riservati.</p>
+        </div>
+    </footer>
+
+</body>
+</html>

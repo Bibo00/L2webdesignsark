@@ -321,6 +321,7 @@ main .container{
 .features {
     background-color: var(--bg-white); /* Sfondo principale scuro */
     padding-top: 0;
+    margin-top: 20em;
 }
 
 .features-grid {
@@ -328,14 +329,112 @@ main .container{
     grid-template-columns: repeat(3, 1fr);
     gap: 30px;
     text-align: left;
+    position: relative;
+}
+
+.card-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-container-1 .feature-card, .card-container-3 .feature-card{
+    top: 5em;
+}
+
+.card-container-1 .feature-card-background, .card-container-3 .feature-card-background{
+    bottom: -1em;
+}
+
+.card-container-2 .feature-card{
+    bottom: 12em;
 }
 
 .feature-card {
-    background: var(--bg-surface); /* MODIFICATO */
-    padding: 30px;
-    border-radius: var(--border-radius-md);
-    box-shadow: var(--card-shadow);
-    border: 1px solid var(--border-color);
+  position: relative;
+  background: var(--bg-surface);
+  padding: 30px;
+  border-radius: var(--border-radius-md);
+  box-shadow: var(--card-shadow);
+  border: 1px solid var(--border-color);
+  overflow: hidden;
+  transition: color 0.5s ease;
+  z-index: 1;
+}
+
+/* Icon wrapper (mini card) */
+.icon-wrapper {
+  position: relative;
+  width: 60px;
+  height: 60px;
+  border-radius: var(--border-radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  color: white;
+  background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+  transition: border 0.3s ease, box-shadow 0.3s ease;
+  z-index: 5; /* <-- più alto per tenere il bordo visibile */
+}
+
+/* L'effetto di espansione */
+.icon-wrapper::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: inherit;
+  transform: scale(0);
+  opacity: 0.9;
+  z-index: -1; /* resta dietro l'icona, ma dentro la card */
+  transition: transform 0.8s ease, opacity 0.8s ease;
+}
+
+/* Hover sulla card grande */
+.feature-card:hover .icon-wrapper::after {
+  transform: scale(23);
+  opacity: 1;
+}
+
+/* Bordo bianco sull'icona quando hover sulla card */
+.feature-card:hover .icon-wrapper {
+  z-index: -1; /* garantisce che il bordo resti sopra l’espansione */
+}
+
+.feature-card:hover .icon-wrapper img{
+  opacity: 0;
+  width: 0 !important;
+  height: 0 !important;
+}
+
+.feature-card:hover h3{
+  font-size: 2em;
+  
+}
+
+/* Testo sopra a tutto */
+.feature-card * {
+  position: relative;
+  z-index: 10;
+}
+
+/* Testo che diventa bianco */
+.feature-card:hover h3,
+.feature-card:hover .long-desc {
+  color: white;
+  transform: translateY(-2.5em);
+  opacity: 1;
+}
+
+.feature-card:hover .long-desc{
+    width: 100%;
+    height: fit-content;
+}
+
+.feature-card:hover .short-desc{
+    opacity: 0;
+    font-size: 0;
 }
 
 .icon-wrapper {
@@ -355,9 +454,33 @@ main .container{
     height: 32px;
 }
 
+.feature-card-background{
+    position: absolute;
+    z-index: 1;
+}
+
+.feature-card h3{
+    transition: color 0.5s ease, font-size 0.5s ease;
+}
+
 .feature-card p {
     font-size: 0.95rem;
     margin-bottom: 0;
+    /* Transizione specifica per opacità e altezza massima */
+    transition: opacity 0.4s ease, max-height 0.5s ease;
+    /* overflow: hidden è cruciale per far funzionare max-height */
+    overflow: hidden;
+}
+
+.long-desc{
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.short-desc {
+    opacity: 1;
+    max-height: 100px; /* Un valore sufficiente a contenerla */
 }
 
 /* ================== PORTFOLIO SECTION ================== */
@@ -707,5 +830,84 @@ footer {
     .hero-top-left-angle,
     .hero-bottom-right-angle {
         display: none;
+    }
+}
+
+/* =======================================
+   Media Query per Tablet e Mobile
+   ======================================= */
+@media (max-width: 1400px) {
+
+    /* 1. Nasconde le immagini di sfondo grandi */
+    .feature-card-background {
+        display: none;
+    }
+
+    /* 2. Riorganizza la griglia: 1 colonna */
+    .features-grid {
+        grid-template-columns: 1fr;
+        gap: 25px; /* Un po' di spazio tra le card */
+    }
+
+    /* 3. Resetta il posizionamento verticale "sfalsato" */
+    .card-container-1 .feature-card,
+    .card-container-3 .feature-card,
+    .card-container-2 .feature-card {
+        top: auto;
+        bottom: auto;
+    }
+
+    /* 4. Riduce il margine superiore per mobile */
+    .features {
+        margin-top: 5em;
+    }
+
+    /* * 5. DISABILITA TUTTI GLI EFFETTI HOVER
+     */
+
+    /* Blocca l'espansione dello sfondo dell'icona */
+    .feature-card:hover .icon-wrapper::after {
+        transform: scale(0);
+        opacity: 0;
+    }
+
+    /* Evita che l'icona sparisca */
+    .feature-card:hover .icon-wrapper img {
+        opacity: 1;
+        width: 32px !important;
+        height: 32px !important;
+    }
+    
+    /* Blocca l'ingrandimento e il cambio colore del titolo */
+    .feature-card:hover h3 {
+        font-size: inherit; /* Mantiene la dimensione base */
+        color: inherit;     /* Mantiene il colore base */
+    }
+
+    /* * 6. GESTIONE TESTI: Mostra solo il testo breve
+     */
+
+    /* Nasconde la descrizione lunga */
+    .feature-card .long-desc {
+        display: none;
+    }
+    
+    /* Assicura che la descrizione corta sia sempre visibile */
+    .feature-card .short-desc {
+        opacity: 1;
+        max-height: 200px; /* Assicurati che sia visibile */
+    }
+
+    /* Impedisce alla corta di sparire in hover */
+    .feature-card:hover .short-desc {
+        opacity: 1;
+        max-height: 200px;
+        font-size: 0.95rem; /* Forza la dimensione base */
+    }
+
+    /* Impedisce alla lunga di apparire in hover */
+    .feature-card:hover .long-desc {
+        opacity: 0;
+        max-height: 0;
     }
 }
